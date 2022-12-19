@@ -1,7 +1,6 @@
 ﻿using System;
 using Neagoe_Eliza_Lab7.Data;
 using System.IO;
-using Neagoe_Eliza_Lab7.Data;
 
 namespace Neagoe_Eliza_Lab7;
 
