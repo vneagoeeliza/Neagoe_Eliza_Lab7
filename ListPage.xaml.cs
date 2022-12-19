@@ -26,14 +26,11 @@ public partial class ListPage : ContentPage
         Product p;
       
             p = listView.SelectedItem as Product;
-            var lp = new ListProduct()
-            {
-                ShopListID = slist.ID,
-                ProductID = p.ID
-            };
-            await App.Database.DeleteListProductAsync(lp);
-            p.ListProducts = new List<ListProduct> { lp };
-        }
+
+            var lp = App.Database.GetListProductAsync(slist.ID, p.ID);
+            await App.Database.DeleteListProductAsync(await lp);
+            listView.ItemsSource = await App.Database.GetListProductsAsync(slist.ID);
+    }
     
    
     async void OnChooseButtonClicked(object sender, EventArgs e)

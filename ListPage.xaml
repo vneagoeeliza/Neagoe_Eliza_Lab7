@@ -34,6 +34,7 @@
         <Button Text="Delete Item from list" MaximumWidthRequest="300"
                 Clicked="OnDeleteItemClicked"/>
         <Button Text="Add/Choose Item to buy" MaximumWidthRequest="300"
-                Clicked="OnChooseButtonClicked"/>      
+                Clicked="OnChooseButtonClicked"/>
+      
     </StackLayout>
 </ContentPage> 

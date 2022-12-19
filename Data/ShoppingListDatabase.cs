@@ -76,16 +76,18 @@ public Task<List<ShopList>> GetShopListsAsync()
             {
                 return _database.InsertAsync(listp);
             }
-        } public Task<int> DeleteListProductAsync(ListProduct listp)
+        }
+
+        public Task<ListProduct> GetListProductAsync(int listid, int prodid)
         {
-            if (listp.ID != 0)
-            {
-                return _database.UpdateAsync(listp);
-            }
-            else
-            {
-                return _database.DeleteAsync(listp);
-            }
+          return  _database.Table<ListProduct>().
+               Where(i => (i.ShopListID == listid) && (i.ProductID == prodid)).FirstOrDefaultAsync();
+        }
+      
+        public Task<int> DeleteListProductAsync(ListProduct dellp)
+        {
+
+            return _database.DeleteAsync(dellp);              
 
         }
         public Task<List<Product>> GetListProductsAsync(int shoplistid)
